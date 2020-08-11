@@ -1,6 +1,18 @@
 # ngx_php7
 this package test completely, and should replace php-fpm
 
+add nginx conf, i feel intresting and useful:
+location ~ group1/M07/(.+)_([0-9]+)x([0-9]+)\.(jpg|gif|png) {
+
+    set $g '7';
+
+    content_by_php_block {
+       $g = ngx_var_get('g');
+
+        include "/server/www/index.php";
+    }
+}
+
 ngx_php7
 ========
 [![Build Status](https://travis-ci.com/rryqszq4/ngx_php7.svg?branch=master)](https://travis-ci.com/rryqszq4/ngx_php7)
