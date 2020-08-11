@@ -209,6 +209,16 @@ http {
             }
         }
 
+        # other example add by iamgleaf
+        location ~ group1/M07/(.+)_([0-9]+)x([0-9]+)\.(jpg|gif|png) {
+            set $g '7';
+            
+            content_by_php_block {
+               $g = ngx_var_get('g');
+
+                include "/../index.php";
+            }
+        }
     }
 }
 ```
